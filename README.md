@@ -1,4 +1,4 @@
-## 📚 Future Software Development Kit (FSDK) - Core 1.0.0.0 Redist Pack
+## 📚 Future Software Development Kit (FSDK) - Core 1.0.0.1 Redist Pack
 > A script to sync all libraries that your scripts use often, preventing code duplications and syncing all libraries with variables that bring windows 7 compatible with most libraries and the SDK itself
 
 ## How does this work
