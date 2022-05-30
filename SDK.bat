@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set SDK_VERSION=1.0.0.0
+set SDK_VERSION=1.0.0.1
 set "SDK_CONFIG=config.ini"
 set "DEFAULT_INSTALL_LOCATION=%~f0"
 
@@ -203,7 +203,8 @@ for %%a in (!LIBRARIES!) do if not "!SDK_SPECIFIC_LIBRARIES!"=="!SDK_SPECIFIC_LI
 
             if not "!LOCAL_VERSION!"=="!SERVER_VERSION!" (
                 REM UPDATE LIBRARY
-                >nul del /s /q "Libraries\!SERVER_LIBRARY_NAME!\*"
+                del /s /q "Libraries\!SERVER_LIBRARY_NAME!\*" >nul
+                mkdir Libraries\!SERVER_LIBRARY_NAME! >nul
                 call <nul "!SDK_CURL!" --create-dirs -#Lkso "Libraries\!SERVER_LIBRARY_NAME!\!SERVER_MAIN_SCRIPT!" "!REPO_BASE_URL!!REPO_USER!/raw/latest/Libraries/!SERVER_LIBRARY_NAME!/!SERVER_MAIN_SCRIPT!"
                 >"Libraries\!SERVER_LIBRARY_NAME!\META.ini" (
                     echo [!SERVER_LIBRARY_NAME!]
